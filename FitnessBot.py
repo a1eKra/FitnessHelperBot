@@ -1,7 +1,14 @@
 import telebot
 from telebot import types
+import os
+from dotenv import load_dotenv, find_dotenv
 
-bot = telebot.TeleBot('7282018206:AAFNZuiT33TvxJi2lZ4uR80NETEp2nn6R2M')
+
+# bot = telebot.TeleBot('7282018206:AAFNZuiT33TvxJi2lZ4uR80NETEp2nn6R2M')
+
+load_dotenv(find_dotenv())
+bot = telebot.TeleBot(os.getenv('TOKEN'))
+
 
 @bot.message_handler(commands=['start'])
 def start(message):
